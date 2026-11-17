@@ -1,0 +1,21 @@
+# Single-node Elasticsearch for RAGFlow on Railway.
+cluster.name: "ragflow"
+node.name: "es01"
+discovery.type: single-node
+# HTTP on every IPv4 and IPv6 address (Railway's private network is IPv6).
+# This service has no public domain.
+http.host: "::"
+transport.host: "127.0.0.1"
+bootstrap.memory_lock: false
+xpack.security.enabled: true
+xpack.security.http.ssl.enabled: false
+xpack.security.transport.ssl.enabled: false
+xpack.ml.enabled: false
+cluster.routing.allocation.disk.watermark.low: 5gb
+cluster.routing.allocation.disk.watermark.high: 3gb
+cluster.routing.allocation.disk.watermark.flood_stage: 2gb
+# Only GET /_cluster/health answers without a password (Railway's health
+# check). Every other call needs the elastic user.
+xpack.security.authc.anonymous.username: "railway_health"
+xpack.security.authc.anonymous.roles: "railway_health"
+xpack.security.authc.anonymous.authz_exception: false
