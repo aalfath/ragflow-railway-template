@@ -10,3 +10,4 @@ Breaking changes are listed first in each entry. Read the entry before you apply
 - MySQL `mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902`
 - Kvrocks `apache/kvrocks:2.16.0@sha256:9e632c317c83c80d92f1c9d22ac6aa9f64d149e1f04ff2af5f15a5768a01c4b7`
 - NATS `nats:2.14.2@sha256:bbfbb6c4cdaeb8a2e3ca57d3de30463a66a6c5181f324f3b680bcf858833d377`
+- The RAGFlow service waits up to 6 minutes for MySQL before its one-time database migration, so a fresh deploy doesn't crash while MySQL is still starting.
